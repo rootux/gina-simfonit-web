@@ -1,4 +1,5 @@
-baseURL = "http://עg/"
+baseURL = "https://rootux.github.io/gina-simfonit-web/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "The Simfonic Garden"
 theme = "ananke"
+publishDir = "./docs"
