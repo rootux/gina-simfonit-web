@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tranquilpeak on The Simfonic Garden</title>
+    <link>https://thesymphonicgarden.org/categories/tranquilpeak/</link>
+    <description>Recent content in tranquilpeak on The Simfonic Garden</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 22 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://thesymphonicgarden.org/categories/tranquilpeak/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Welcome to the Symphonic Garden Project</title>
+      <link>https://thesymphonicgarden.org/2021/07/welcome-to-the-symphonic-garden-project/</link>
+      <pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://thesymphonicgarden.org/2021/07/welcome-to-the-symphonic-garden-project/</guid>
+      <description>&lt;p&gt;The symphonic garden is this and also that&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
