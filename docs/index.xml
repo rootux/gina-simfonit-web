@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>The Simfonic Garden</title>
-    <link>https://rootux.github.io/symphonic-garden-web/</link>
+    <link>https://thesymphonicgarden.org/</link>
     <description>Recent content on The Simfonic Garden</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 22 Jul 2021 15:33:23 +0300</lastBuildDate><atom:link href="https://rootux.github.io/symphonic-garden-web/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Jul 2021 15:33:23 +0300</lastBuildDate><atom:link href="https://thesymphonicgarden.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Gina Simfonit</title>
-      <link>https://rootux.github.io/symphonic-garden-web/posts/gina-simfonit/</link>
+      <link>https://thesymphonicgarden.org/posts/gina-simfonit/</link>
       <pubDate>Thu, 22 Jul 2021 15:33:23 +0300</pubDate>
       
-      <guid>https://rootux.github.io/symphonic-garden-web/posts/gina-simfonit/</guid>
+      <guid>https://thesymphonicgarden.org/posts/gina-simfonit/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Welcome to the Symphonic Garden Project</title>
-      <link>https://rootux.github.io/symphonic-garden-web/2021/07/welcome-to-the-symphonic-garden-project/</link>
+      <link>https://thesymphonicgarden.org/2021/07/welcome-to-the-symphonic-garden-project/</link>
       <pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://rootux.github.io/symphonic-garden-web/2021/07/welcome-to-the-symphonic-garden-project/</guid>
+      <guid>https://thesymphonicgarden.org/2021/07/welcome-to-the-symphonic-garden-project/</guid>
       <description>&lt;p&gt;The symphonic garden is this and also that&lt;/p&gt;</description>
     </item>
     
