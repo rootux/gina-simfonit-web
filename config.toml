@@ -12,7 +12,7 @@
 # For developpers, if you modify this theme, put your images in `source/images` folder and
 # use grunt task `build` to synchronize assets
 
-baseURL = "https://rootux.github.io/symphonic-garden-web/"
+baseURL = "https://thesymphonicgarden.org/"
 defaultContentLanguage = "en-us"
 title = "The Simfonic Garden"
 theme = "tranquilpeak"
@@ -20,7 +20,7 @@ publishDir = "./docs"
 disqusShortname = "the-simfonic-garden"
 googleAnalytics = "G-0ZT9DJB4V6"
 paginate = 7
-canonifyurls = true
+canonifyurls = false
 
 [permalinks]
   post = "/:year/:month/:slug/"
