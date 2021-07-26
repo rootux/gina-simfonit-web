@@ -2,31 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://thesymphonicgarden.org/posts/gina-simfonit/</loc>
-    <lastmod>2021-07-22T15:33:23+03:00</lastmod>
-  </url><url>
-    <loc>https://thesymphonicgarden.org/posts/</loc>
-    <lastmod>2021-07-22T15:33:23+03:00</lastmod>
-  </url><url>
-    <loc>https://thesymphonicgarden.org/</loc>
-    <lastmod>2021-07-22T15:33:23+03:00</lastmod>
-  </url><url>
-    <loc>https://thesymphonicgarden.org/categories/</loc>
-    <lastmod>2021-07-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://thesymphonicgarden.org/categories/features/</loc>
-    <lastmod>2021-07-22T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://thesymphonicgarden.org/post/</loc>
     <lastmod>2021-07-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://thesymphonicgarden.org/categories/tranquilpeak/</loc>
+    <loc>https://thesymphonicgarden.org/</loc>
     <lastmod>2021-07-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://thesymphonicgarden.org/2021/07/welcome-to-the-symphonic-garden-project/</loc>
     <lastmod>2021-07-22T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://thesymphonicgarden.org/garden/garden/</loc>
+  </url><url>
     <loc>https://thesymphonicgarden.org/archives/</loc>
+  </url><url>
+    <loc>https://thesymphonicgarden.org/categories/</loc>
+  </url><url>
+    <loc>https://thesymphonicgarden.org/garden/</loc>
   </url><url>
     <loc>https://thesymphonicgarden.org/tags/</loc>
   </url>

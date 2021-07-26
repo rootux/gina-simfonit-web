@@ -1,0 +1,30 @@
+.player_btn {
+    font-size: 2em;
+    border: none;
+    border-radius: 4px;
+    padding: 0.3em 0.4em;
+    color: #eb1478;
+    background-color: #252627;
+    font-family: "Open Sans",sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+}
+
+.player_btn:hover:enabled,
+.player_btn:focus:enabled {
+    background: #424651;
+}
+
+.player_btn:disabled {
+    cursor: default;
+    color: #777777;
+}
+
+.player_btn:focus {
+    transform: scale(0.9);
+    outline: 1px solid #fff;
+}
+.player_btn:active {
+    transform: scale(0.9);
+}

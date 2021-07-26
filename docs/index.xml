@@ -5,16 +5,7 @@
     <link>https://thesymphonicgarden.org/</link>
     <description>Recent content on The Simfonic Garden</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 22 Jul 2021 15:33:23 +0300</lastBuildDate><atom:link href="https://thesymphonicgarden.org/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Gina Simfonit</title>
-      <link>https://thesymphonicgarden.org/posts/gina-simfonit/</link>
-      <pubDate>Thu, 22 Jul 2021 15:33:23 +0300</pubDate>
-      
-      <guid>https://thesymphonicgarden.org/posts/gina-simfonit/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Thu, 22 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://thesymphonicgarden.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Welcome to the Symphonic Garden Project</title>
       <link>https://thesymphonicgarden.org/2021/07/welcome-to-the-symphonic-garden-project/</link>
@@ -22,6 +13,15 @@
       
       <guid>https://thesymphonicgarden.org/2021/07/welcome-to-the-symphonic-garden-project/</guid>
       <description>&lt;p&gt;The symphonic garden is this and also that&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://thesymphonicgarden.org/garden/garden/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://thesymphonicgarden.org/garden/garden/</guid>
+      <description>The gardenAllQuietWind DirectionWind Speedwindow.addEventListener(&#39;load&#39;, (event) = {console.log(&#39;Starting the experience...&#39;)window.player.init()});</description>
     </item>
     
   </channel>

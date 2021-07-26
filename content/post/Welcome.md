@@ -13,17 +13,14 @@ autoThumbnailImage: false
 thumbnailImagePosition: "top"
 thumbnailImage: //d1u9biwaxjngwg.cloudfront.net/welcome-to-tranquilpeak/city-750.jpg
 coverImage: //d1u9biwaxjngwg.cloudfront.net/welcome-to-tranquilpeak/city.jpg
-metaAlignment: center 
-categories:
-- tranquilpeak
-- features 
+metaAlignment: center
 showPagination: false
 ---
 The symphonic garden is this and also that
 
 <!--more-->
 
-![Tranquilpeak](/img/veronica-garden.jpg)
+![The garden](/img/veronica-garden.jpg)
 Some more info
 <!-- toc -->
 
