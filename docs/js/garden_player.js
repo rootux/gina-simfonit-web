@@ -1,68 +1,95 @@
 let inited = false;
-let delay;
-let chorus;
-let source;
-
+let channels = []
+let buttons = {}
 window.player = {}
 
-function init() {
-    makeChannel(-)
+let soundA = "/sounds/seoul.mp3"
+let soundB = "/sounds/london.mp3"
+let soundC = "/sounds/tokyo.mp3"
+
+async function init() {
+    channels.push(makeChannel(soundA, false));
+    channels.push(makeChannel(soundB, false));
+    channels.push(makeChannel(soundC, false));
+    setAllButtonsToActive();
+    inited = true;
 }
 
-function makeChannel(name, url, pan=0) {
+function setAllButtonsToActive(){
+    buttons.windDir.classList.add('active');
+    buttons.windSpeed.classList.add('active');
+    buttons.waterStatus.classList.add('active');
+}
+
+function setAllButtonsToInactive() {
+
+}
+
+function makeChannel(url, mute, pan=0) {
     const channel = new Tone.Channel({
-        pan
+        pan,
+        mute
     }).toDestination();
     const player = new Tone.Player({
-        url: `https://tonejs.github.io/audio/berklee/${url}.mp3`,
-        loop: true
-    }).sync().start(0);
+        url,
+        loop: true,
+        autostart:true
+    }).sync();
     player.connect(channel);
+    return channel;
+}
 
-    // add a UI element
-    ui({
-        name,
-        tone: channel,
-        parent: document.querySelector("#content")
-    });
+function getById(id) {
+    return document.getElementById(id);
+}
+
+function setBtns(state) {
+    const windDir = getById("wind_dir");
+    const windSpeed = getById("wind_speed");
+    const quiet = getById("quiet");
+    const waterStatus = getById("water_status");
+    windDir.disabled = state;
+    quiet.disabled = state;
+    windSpeed.disabled = state;
+    waterStatus.disabled = state;
 }
 
 window.player.init = function() {
     console.log("Loaded")
-    const start = document.getElementById("all");
-    const dry = document.getElementById("wind");
-    const wet = document.getElementById("wind_speed");
-    const quiet = document.getElementById("quiet");
-    dry.disabled = true;
-    wet.disabled = true;
-    quiet.disabled = true;
+    buttons.start = getById("all");
+    buttons.windDir = getById("wind_dir");
+    buttons.windSpeed = getById("wind_speed");
+    buttons.waterStatus = getById("water_status");
+    buttons.quiet = getById("quiet");
+    setBtns(true);
 
-    start.addEventListener("click", function(e) {
-        if (!inited) init();
-        dry.disabled = false;
-        quiet.disabled = false;
-        wet.disabled = false;
-        start.disabled = true;
+    buttons.start.addEventListener("click", async function(e) {
+        await Tone.start()
+        if (!inited) await init();
+        Tone.Transport.start()
+        setBtns(false);
+        buttons.start.disabled = true;
     });
 
-    quiet.addEventListener("click", function(e) {
-        if (!inited) init();
-        source.stop()
-        quiet.disabled = true;
-        start.disabled = false;
-        dry.disabled = true;
-        wet.disabled = true;
-        quiet.disabled = true;
-        inited = false;
+    buttons.quiet.addEventListener("click", function(e) {
+        Tone.Transport.stop();
+        buttons.start.disabled = false;
+        setBtns(true);
     });
 
-    dry.addEventListener("click", function(e) {
-        if (!inited) init();
-        if (delay) delay.bypass = !delay.bypass;
-    });
+    setClickHandler(buttons.windDir, 0);
+    setClickHandler(buttons.windSpeed, 1);
+    setClickHandler(buttons.waterStatus, 2);
+}
 
-    wet.addEventListener("click", function(e) {
-        if (!inited) init();
-        if (chorus) chorus.bypass = false;
+function setClickHandler(btn, channelIndex) {
+    btn.addEventListener("click", function(e) {
+        const isActive = btn.classList.contains('active');
+        if(!isActive) {
+            btn.classList.add('active')
+        } else {
+            btn.classList.remove('active')
+        }
+        channels[channelIndex].set({mute: isActive});
     });
 }

@@ -70,11 +70,9 @@ function animate () {
 }
 
 function onWindowResize() {
-    console.log(camera.rotation)
     camera.aspect = window.innerWidth / window.innerHeight
     camera.updateProjectionMatrix()
     renderer.setSize( window.innerWidth * RENDER_SIZE, window.innerHeight * RENDER_SIZE)
-    animate()
 }
 
 function meshToThreejs(mesh, material) {
