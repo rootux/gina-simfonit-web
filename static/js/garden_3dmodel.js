@@ -26,6 +26,7 @@ rhino3dm().then(async m => {
         if(mesh instanceof rhino.Mesh) {
             // convert all meshes in 3dm model into threejs objects
             let threeMesh = meshToThreejs(mesh, material)
+            models.push(threeMesh);
             scene.add(threeMesh)
         }
     }
@@ -33,14 +34,15 @@ rhino3dm().then(async m => {
     document.getElementById('loader').style.display = 'none'
 })
 
-let scene, camera, renderer
+let models = [];
+let scene, camera, renderer;
 
-function init(){
+function init() {
     THREE.Object3D.DefaultUp = new THREE.Vector3(0,0,1)
     scene = new THREE.Scene()
     scene.background = new THREE.Color(1,1,1)
-    camera = new THREE.PerspectiveCamera( 20, window.innerWidth /window.innerHeight, 0.1, 1000 )
-    camera.position.set(0, 220, 0 )
+    camera = new THREE.PerspectiveCamera( 70, window.innerWidth /window.innerHeight, 0.1, 1000 )
+    camera.position.set(0, 50, 0 )
     camera.rotation.x = 0
     camera.rotation.y = 0
     camera.rotation.z = 0
@@ -58,6 +60,11 @@ function init(){
 }
 
 function animate () {
+    if(models.length > 0) {
+        for (let model of models) {
+            model.rotation.z += 0.002;
+        }
+    }
     requestAnimationFrame( animate )
     renderer.render( scene, camera )
 }
