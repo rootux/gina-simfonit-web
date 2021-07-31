@@ -15,6 +15,6 @@
     window.db = db;
 
     const sensors = await db.collection('garden-mekudeshet').doc('sensors').get()
-    console.log(sensors.data())
+    setSensorsData(sensors.data())
 
 })()
