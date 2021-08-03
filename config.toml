@@ -13,13 +13,26 @@
 # use grunt task `build` to synchronize assets
 
 baseURL = "https://thesymphonicgarden.org/"
-defaultContentLanguage = "en-us"
+defaultContentLanguage = "en"
 title = "The Simfonic Garden"
 theme = "tranquilpeak"
 publishDir = "./docs"
 googleAnalytics = "G-0ZT9DJB4V6"
 paginate = 7
 canonifyurls = false
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    weight = 1
+  [languages.he]
+    languagedirection = "rtl"
+    languageName = "עברית"
+    weight = 2
+  [languages.ar]
+    languagedirection = "rtl"
+    languageName = "عربيه"
+    weight = 3
 
 [permalinks]
   post = "/:year/:month/:slug/"
@@ -30,7 +43,7 @@ canonifyurls = false
   archive = "archives"
 
 [author]
-  name = "Synphonic Garden"
+  name = "Symphonic Garden"
   bio = "Where music meets nature"
   job = "Starting"
   location = "Jerusalem"
@@ -47,21 +60,21 @@ canonifyurls = false
 # Menu Configuration
 [[menu.main]]
   weight = 1
-  identifier = "home"
+  identifier = "Home"
   name = "Home"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-home\"></i>"
   url = "/"
 
 [[menu.main]]
   weight = 2
-  identifier = "garden"
+  identifier = "The-Garden"
   name = "The garden"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-tree\"></i>"
   url = "/garden/garden"
 
 [[menu.main]]
   weight = 5
-  identifier = "about"
+  identifier = "About"
   name = "The garden"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-question\"></i>"
   url = "/#about"
