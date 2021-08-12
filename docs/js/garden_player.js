@@ -3,26 +3,33 @@ let channels = []
 let buttons = {}
 window.player = {}
 
+let soundIntro = "/sounds/intro.mp3"
 let soundA = "/sounds/T1.mp3"
 let soundB = "/sounds/T2.mp3"
 let soundC = "/sounds/T3.mp3"
 let soundD = "/sounds/TBass.mp3"
 let soundE = "/sounds/v10.mp3"
 
+let isIntro = true;
+
 const buttonNames = ["start", "quiet",
-    "windSpeed", "windDir", "earth",
-    "radiation", "dust", "temperature", "humidity",
+    "wind", "earth", "radiation",
+    "dust", "temperature", "humidity",
     ];
 
 async function init() {
     document.getElementById("loadingSounds").style.display = ""
-    const weather = await getWeatherData();
-    console.log(weather);
-    channels.push(makeChannel(soundA, false));
-    channels.push(makeChannel(soundB, false));
-    channels.push(makeChannel(soundC, false));
-    channels.push(makeChannel(soundD, false));
-    channels.push(makeChannel(soundE, false));
+    //const weather = await getWeatherData();
+    //console.log(weather);
+    if(isIntro) {
+        channels.push(makeChannel(soundIntro, false));
+    } else {
+        channels.push(makeChannel(soundA, false));
+        channels.push(makeChannel(soundB, false));
+        channels.push(makeChannel(soundC, false));
+        channels.push(makeChannel(soundD, false));
+        channels.push(makeChannel(soundE, false));
+    }
     setAllButtonsToActive();
     inited = true;
     Tone.loaded().then(() => {
@@ -91,11 +98,10 @@ window.player.init = function() {
         }
     });
 
-    setClickHandler(buttons.windDir, 0);
-    setClickHandler(buttons.windSpeed, 1);
-    setClickHandler(buttons.earth, 2);
-    setClickHandler(buttons.radiation, 3);
-    setClickHandler(buttons.dust, 4);
+    setClickHandler(buttons.wind, 0);
+    setClickHandler(buttons.earth, 1);
+    setClickHandler(buttons.radiation, 2);
+    setClickHandler(buttons.dust, 3);
 
 }
 
