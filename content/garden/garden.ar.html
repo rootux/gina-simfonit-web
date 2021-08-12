@@ -9,14 +9,19 @@ description: تجربة الحديقة
 <link rel="stylesheet" href="/css/garden_player.css">
 <link rel="stylesheet" href="/css/garden_3dmodel.css">
 <div id="loader"></div>
+<div id="loadingSounds">Loading sounds...</div>
 <br>
 <div class="centerme">
-    <button id="all" class="player_btn">الجميع</button>
+    <button id="start" class="player_btn">START</button>
     <button id="quiet" class="player_btn">هادئ</button>
-    <button id="wind_dir" class="player_btn">اتجاه الرياح</button>
-    <button id="wind_speed" class="player_btn">سرعة الرياح</button>
-    <button id="water_status" class="player_btn">حالة المياه</button>
-    <span><p id="sensors_data">تحميل...</p></span>
+    <button id="wind_speed" class="player_btn">WIND SPEED</button>
+    <button id="wind_dir" class="player_btn">WIND DIRECTION</button>
+    <button id="earth" class="player_btn">EARTH</button>
+    <button id="radiation" class="player_btn">RADIATION</button>
+    <button id="dust" class="player_btn">DUST</button>
+    <button id="temperature" class="player_btn">TEMPERATURE</button>
+    <button id="humidity" class="player_btn">HUMIDITY</button>
+    <span><p id="sensors_data">Loading Sensors data...</p></span>
 </div>
 
 <div id="garden_model"></div>
@@ -24,6 +29,7 @@ description: تجربة الحديقة
 <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.min.js"></script>
+<script src="/js/weather_data.js" type="text/javascript"></script>
 <script src="/js/garden_player.js" type="text/javascript"></script>
 <script src="/js/garden_3dmodel.js" type="module"></script>
 <script src="/js/garden_db.js" type="module"></script>
