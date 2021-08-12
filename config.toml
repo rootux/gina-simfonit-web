@@ -43,8 +43,8 @@ canonifyurls = false
   archive = "archives"
 
 [author]
-  name = "Symphonic Garden"
-  bio = "Where music meets nature"
+  name = "THE SYMPHONIC GARDEN"
+  bio = "listen to the garden sing"
   job = "Starting"
   location = "Jerusalem"
   # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
@@ -68,14 +68,14 @@ canonifyurls = false
 [[menu.main]]
   weight = 2
   identifier = "The-Garden"
-  name = "The garden"
+  name = "Garden"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-tree\"></i>"
   url = "/garden/garden"
 
 [[menu.main]]
   weight = 5
   identifier = "About"
-  name = "The garden"
+  name = "About"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-question\"></i>"
   url = "/#about"
 

@@ -7,8 +7,11 @@ other = "הגינה"
 [About]
 other = "אודות"
 
-[Bio]
-other = "מוזיקה פוגשת טבע"
+[Author.Bio]
+other = "הקשב לרחשי הגינה"
+
+[Creators]
+other = "יוצרים"
 
 [Author.Name]
 other = "הגינה הסימפונית"

@@ -2,13 +2,16 @@
 other = "Home"
 
 [The-Garden]
-other = "The Garden"
+other = "Garden"
 
 [About]
 other = "About"
 
 [Bio]
 other = "Where music meets nature!"
+
+[Creators]
+other = "Creators"
 
 [Author.Name]
 other = "Symphonic Garden"
