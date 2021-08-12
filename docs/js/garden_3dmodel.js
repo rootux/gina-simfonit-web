@@ -2,7 +2,7 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.126.0/build/three.m
 import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.126.0/examples/jsm/controls/OrbitControls.js'
 import rhino3dm from 'https://cdn.jsdelivr.net/npm/rhino3dm@0.15.0-beta/rhino3dm.module.js'
 
-const file = '/img/hello_mesh.3dm'
+const file = '/img/garden.3dm'
 
 const RENDER_SIZE = 1
 
@@ -38,11 +38,16 @@ let models = [];
 let scene, camera, renderer;
 
 function init() {
+    let scale = 1;
+    const width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+    if(width < 1024) {
+        scale = 1.5;
+    }
     THREE.Object3D.DefaultUp = new THREE.Vector3(0,0,1)
     scene = new THREE.Scene()
     scene.background = new THREE.Color(1,1,1)
-    camera = new THREE.PerspectiveCamera( 70, window.innerWidth /window.innerHeight, 0.1, 1000 )
-    camera.position.set(0, 50, 0 )
+    camera = new THREE.PerspectiveCamera( 45 * scale, window.innerWidth /window.innerHeight, 0.1, 1000 )
+    camera.position.set(-150, -100, 130 )
     camera.rotation.x = 0
     camera.rotation.y = 0
     camera.rotation.z = 0
