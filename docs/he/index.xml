@@ -12,7 +12,14 @@
       <pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>https://thesymphonicgarden.org/he/2021/07/%D7%91%D7%A8%D7%95%D7%9B%D7%99%D7%9D-%D7%94%D7%91%D7%90%D7%99%D7%9D-%D7%9C%D7%92%D7%99%D7%A0%D7%94-%D7%94%D7%A1%D7%99%D7%A4%D7%95%D7%A0%D7%99%D7%AA/</guid>
-      <description>&lt;p&gt;הגינה הסימפונית היא כזה וכזה&lt;/p&gt;</description>
+      <description>The Symphonic Garden is an interactive sound piece that lives in a garden.
+&lt;br/&gt;The experience is a dialogue in real time between nature and sound.
+&lt;br/&gt;The sounds respond to and change according to data from the weather and the growth of the plants in the garden.
+The garden sings the sounds of growth and slowing down of the wind blowing through the leaves and branches,
+or the sun changing it&#39;s locations throughout the day and between the humidity or dryness of the earth.
+&lt;br/&gt;The work allows us to listen to the changes of nature over time
+and the development of nature through the beauty of the vegetation and the music&#39;s response to it.
+</description>
     </item>
     
     <item>
@@ -21,8 +28,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://thesymphonicgarden.org/he/garden/garden/</guid>
-      <description>הכלשקטכיוון הרוחמהירות הרוחמצב המיםטוען מידע מהסנסורים...
-window.addEventListener(&#39;load&#39;, (event) = {console.log(&#39;Starting the experience...&#39;)window.player.init()});</description>
+      <description> Loading sounds... התחל שקט WIND SPEED WIND DIRECTION EARTH RADIATION DUST TEMPERATURE HUMIDITY Loading Sensors data...
+           window.addEventListener(&#39;load&#39;, (event) = { console.log(&#39;Starting the experience...&#39;) window.player.init() }); </description>
     </item>
     
   </channel>
