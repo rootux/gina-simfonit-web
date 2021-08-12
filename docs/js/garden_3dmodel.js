@@ -47,10 +47,9 @@ function init() {
     scene = new THREE.Scene()
     scene.background = new THREE.Color(1,1,1)
     camera = new THREE.PerspectiveCamera( 45 * scale, window.innerWidth /window.innerHeight, 0.1, 1000 )
-    camera.position.set(-150, -100, 130 )
-    camera.rotation.x = 0
-    camera.rotation.y = 0
-    camera.rotation.z = 0
+    camera.position.set(-150, -100, 40 )
+    // Offset the y
+    camera.setViewOffset( window.innerWidth, window.innerHeight, 0, 100 * scale, window.innerWidth, window.innerHeight );
 
     renderer = new THREE.WebGLRenderer({antialias: true})
     renderer.setPixelRatio( window.devicePixelRatio )
@@ -67,7 +66,7 @@ function init() {
 function animate () {
     if(models.length > 0) {
         for (let model of models) {
-            model.rotation.z += 0.002;
+            model.rotation.z += 0.0005;
         }
     }
     requestAnimationFrame( animate )
