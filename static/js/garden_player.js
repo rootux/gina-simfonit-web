@@ -13,13 +13,22 @@ let soundE = "/sounds/v10.mp3"
 let isIntro = true;
 
 const buttonNames = ["start", "quiet",
-    "wind", "earth", "radiation",
+    "wind", "radiation",
     "dust", "temperature", "humidity",
     ];
+
+function setSliders(weather) {
+    getById('dust_slider').attributes.value.value = weather.bigDust;
+    getById('humidity_slider').attributes.value.value = weather.bigDust;
+    getById('temperature_slider').attributes.value.value = weather.temperature;
+    getById('wind_slider').attributes.value.value = weather.windSpeed;
+    getById('radiation_slider').attributes.value.value = weather.solarRadiation;
+}
 
 async function init() {
     document.getElementById("loadingSounds").style.display = ""
     const weather = await getWeatherData();
+    setSliders(weather);
     console.log(weather);
     if(isIntro) {
         channels.push(makeChannel(soundIntro, false));
@@ -99,9 +108,10 @@ window.player.init = function() {
     });
 
     setClickHandler(buttons.wind, 0);
-    setClickHandler(buttons.earth, 1);
-    setClickHandler(buttons.radiation, 2);
-    setClickHandler(buttons.dust, 3);
+    setClickHandler(buttons.dust, 1);
+    setClickHandler(buttons.humidity, 2);
+    setClickHandler(buttons.radiation, 3);
+    setClickHandler(buttons.temperature, 4);
 
 }
 

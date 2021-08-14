@@ -4,7 +4,7 @@
     border-radius: 4px;
     padding: 0.3em 0.4em;
     color: #eb1478;
-    background-color: #252627;
+    background-color: white;
     font-family: "Open Sans",sans-serif;
     cursor: pointer;
     text-decoration: none;
@@ -21,9 +21,51 @@
 }
 
 .active {
-    background: #767676;
+    background: rgba(10,20,30,0.2);
 }
 
 .player_btn.active:hover:enabled {
     background: #767676;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: auto;
+    margin: auto;
+}
+
+.button-img {
+    display: block;
+    width: 90px;
+    height: 90px;
+    margin: auto;
+    background-size: 90px 90px;
+    background-repeat: no-repeat;
+}
+
+#radiation-img {
+    background: url("/img/radiation.svg");
+}
+
+#dust-img {
+    background: url("/img/dust.svg");
+}
+
+#wind-img {
+    background: url("/img/wind.svg");
+}
+
+#temperature-img {
+    background: url("/img/temperature.svg");
+}
+
+#humidity-img {
+    background: url("/img/humidity.svg");
 }

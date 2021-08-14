@@ -11,17 +11,32 @@ description: The garden experience
 <link rel="stylesheet" href="/css/garden_3dmodel.css">
 <div id="loader"></div>
 <div id="loadingSounds">Loading sounds...</div>
-<br>
+<button id="start" class="player_btn">START</button>
+<br/>
+<div class="button-container">
+    <div class="button">
+        <afix-range-slider id="wind_slider" style="display:inline-block" value="0" min="0" max="100"></afix-range-slider>
+        <button id="wind" class="player_btn">WIND<span class ="button-img" id="wind-img" /></button>
+    </div>
+    <div class="button">
+        <afix-range-slider id="dust_slider" style="display:inline-block" value="0" min="0" max="100"></afix-range-slider>
+        <button id="dust" class="player_btn">DUST<span class ="button-img" id="dust-img" /></button>
+    </div>
+    <div class="button">
+        <afix-range-slider id="radiation_slider" style="display:inline-block" value="0" min="0" max="1000"></afix-range-slider>
+        <button id="radiation" class="player_btn">RADIATION<span class ="button-img" id="radiation-img" /></button>
+    </div>
+    <div class="button">
+        <afix-range-slider id="humidity_slider" style="display:inline-block" value="0" min="0" max="100"></afix-range-slider>
+        <button id="humidity" class="player_btn">HUMIDITY<span class ="button-img" id="humidity-img" /></button>
+    </div>
+    <div class="button">
+        <afix-range-slider id="temperature_slider" disabled=disabled style="display:inline-block" value="0" min="0" max="100"></afix-range-slider>
+        <button id="temperature" class="player_btn">TEMPERATURE<span class ="button-img" id="temperature-img" /></button>
+    </div>
+</div>
 <div class="centerme">
-    <button id="start" class="player_btn">START</button>
     <button id="quiet" class="player_btn">QUIET</button>
-    <button id="wind" class="player_btn">WIND</button>
-    <button id="earth" class="player_btn">EARTH</button>
-    <button id="radiation" class="player_btn">RADIATION</button>
-    <button id="dust" class="player_btn">DUST</button>
-    <button id="temperature" class="player_btn">TEMPERATURE</button>
-    <button id="humidity" class="player_btn">HUMIDITY</button>
-    <div id="floati"><afix-range-slider value="50" min="0" max="100" /></div>
     <span><p id="sensors_data">Loading Sensors data...</p></span>
 </div>
 

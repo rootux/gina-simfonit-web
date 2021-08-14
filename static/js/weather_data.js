@@ -14,7 +14,7 @@ const getWeatherData = async () => {
         result.humidity = current.hum; // 43 (should be treated as percentage
         result.windDir = current.winddir;
         result.windSpeed = current.windspd;
-        result.temp = current.temp; //Mountain temp
+        result.temperature = current.temp; //Mountain temp
         result.solarRadiation = current.solarradiation // 997
         result.uv = current.uv // 7.7
         result.bigDust = current.pm10 // Big dust
