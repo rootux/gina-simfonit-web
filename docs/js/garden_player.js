@@ -10,28 +10,50 @@ let soundC = "/sounds/T3.mp3"
 let soundD = "/sounds/TBass.mp3"
 let soundE = "/sounds/v10.mp3"
 
+let introPlayer;
 let isIntro = true;
+let introEffects;
 
 const buttonNames = ["start", "quiet",
     "wind", "radiation",
     "dust", "temperature", "humidity",
     ];
 
+// Linear conversion
+const mapRange = (oldValue, oldMin, oldMax, newMin, newMax) => {
+    const oldRange = (oldMax - oldMin)
+    const newRange = (newMax - newMin)
+    return (((oldValue - oldMin) * newRange) / oldRange) + newMin
+}
+
 function setSliders(weather) {
     getById('dust_slider').attributes.value.value = weather.bigDust;
-    getById('humidity_slider').attributes.value.value = weather.bigDust;
+    getById('humidity_slider').attributes.value.value = weather.humidity;
     getById('temperature_slider').attributes.value.value = weather.temperature;
     getById('wind_slider').attributes.value.value = weather.windSpeed;
     getById('radiation_slider').attributes.value.value = weather.solarRadiation;
 }
 
+async function getWeatherAsEffects(weather) {
+    return {
+        solarRadiation: mapRange(weather.solarRadiation, 0, 1000, 0, 4), // 0 is night time. autofilter
+        //windDirection: mapWindDir(weather.windDir); //0 - 50. Panning
+        windSpeed: mapRange(weather.windSpeed, 0, 50, 0, 1),
+        bigDust: mapRange(weather.bigDust, 0, 300, 0, 1), //Tremolo - TODO there is also frequency + depth of termolo
+        humidity: mapRange(weather.humidity, 0, 100, 0, 1), // 100 cause it's Percentage
+        temperature: mapRange(weather.temperature, -20, 50, 0, 10), // -20 to 50 degrees //TODO: -20 might not be a good no reverb time - perhaps a different mapping is needed where 25 degrees is normal
+    }
+}
+
 async function init() {
     document.getElementById("loadingSounds").style.display = ""
     const weather = await getWeatherData();
+    const weatherAsEffects = await getWeatherAsEffects(weather);
     setSliders(weather);
     console.log(weather);
     if(isIntro) {
         channels.push(makeChannel(soundIntro, false));
+        initIntroEffects(weatherAsEffects);
     } else {
         channels.push(makeChannel(soundA, false));
         channels.push(makeChannel(soundB, false));
@@ -63,17 +85,49 @@ function setAllButtonsToInactiveBut(btnToKeepActive) {
     })
 }
 
+function initIntroEffects(weatherAsEffects) {
+    introEffects = new Array(5).fill(0).map(() => ({}));
+    const autoFilter = new Tone.AutoFilter(weatherAsEffects.solarRadiation + "n").toDestination();
+    introEffects[0] = {effect: autoFilter, status: false};
+    const distortion = new Tone.Distortion(weatherAsEffects.bigDust).toDestination();
+    introEffects[1] = {effect: distortion, status: false};
+    const reverb = new Tone.Reverb(weatherAsEffects.temperature).toDestination();
+    introEffects[2] = {effect: distortion, status: false};
+}
+
+function startIntroEffect(channelIndex) {
+    let introChannel = introEffects[channelIndex];
+    if(!introChannel.status) {
+        introPlayer.connect(introChannel.effect);
+        //introChannel.effect.start();
+    }else {
+        introPlayer.disconnect(introChannel.effect);
+        //introChannel.effect.stop();
+    }
+    introChannel.status = !introChannel.status;
+}
+
 function makeChannel(url, mute, pan=0) {
     const channel = new Tone.Channel({
         pan,
         mute
     }).toDestination();
-    const player = new Tone.Player({
-        url,
-        loop: true,
-        autostart:true
-    }).sync();
-    player.connect(channel);
+    if(isIntro) {
+        introPlayer = new Tone.Player({
+            url,
+            loop: true,
+            autostart: true
+        }).sync();
+        introPlayer.connect(channel);
+    }else {
+        const player = new Tone.Player({
+            url,
+            loop: true,
+            autostart: true
+        }).sync();
+        player.connect(channel);
+    }
+
     return channel;
 }
 
@@ -123,6 +177,10 @@ function setClickHandler(btn, channelIndex) {
         } else {
             btn.classList.remove('active')
         }
-        channels[channelIndex].set({solo: isActive});
+        if(isIntro) {
+            startIntroEffect(channelIndex);
+        }else {
+            channels[channelIndex].set({solo: isActive});
+        }
     });
 }
