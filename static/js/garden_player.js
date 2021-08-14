@@ -19,8 +19,8 @@ const buttonNames = ["start", "quiet",
 
 async function init() {
     document.getElementById("loadingSounds").style.display = ""
-    //const weather = await getWeatherData();
-    //console.log(weather);
+    const weather = await getWeatherData();
+    console.log(weather);
     if(isIntro) {
         channels.push(makeChannel(soundIntro, false));
     } else {
