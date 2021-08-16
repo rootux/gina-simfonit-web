@@ -14,7 +14,7 @@ let introPlayer;
 let isIntro = true;
 let introEffects;
 
-const buttonNames = ["start", "quiet",
+const buttonNames = ["start",
     "wind", "radiation",
     "dust", "temperature", "humidity",
     ];
@@ -48,6 +48,7 @@ async function getWeatherAsEffects(weather) {
 async function init() {
     document.getElementById("loadingSounds").style.display = ""
     const weather = await getWeatherData();
+    setWeatherText(weather);
     const weatherAsEffects = await getWeatherAsEffects(weather);
     setSliders(weather);
     console.log(weather);
@@ -67,6 +68,10 @@ async function init() {
         document.getElementById("loadingSounds").style.display = "none"
         console.log("Loaded all sounds")
     })
+}
+
+function setWeatherText(weather) {
+    document.getElementById('weather_data').innerText = "Wind direction: " + weather.windDir;
 }
 
 function setAllButtonsToActive(){
@@ -151,15 +156,15 @@ window.player.init = function() {
         buttons.start.disabled = true;
     });
 
-    buttons.quiet.addEventListener("click", function(e) {
-        if(buttons.start.disabled) {
-            Tone.Transport.start()
-            setAllButtonsToActive()
-        }else {
-            Tone.Transport.pause();
-            setAllButtonsToInactiveBut("quiet")
-        }
-    });
+    // buttons.quiet.addEventListener("click", function(e) {
+    //     if(buttons.start.disabled) {
+    //         Tone.Transport.start()
+    //         setAllButtonsToActive()
+    //     }else {
+    //         Tone.Transport.pause();
+    //         setAllButtonsToInactiveBut()
+    //     }
+    // });
 
     setClickHandler(buttons.wind, 0);
     setClickHandler(buttons.dust, 1);

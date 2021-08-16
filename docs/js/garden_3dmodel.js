@@ -40,7 +40,9 @@ let scene, camera, renderer;
 function init() {
     let scale = 1;
     const width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-    if(width < 1024) {
+    if(width < 868) {
+        scale = 2.1;
+    }else if (width < 1024) {
         scale = 1.5;
     }
     THREE.Object3D.DefaultUp = new THREE.Vector3(0,0,1)

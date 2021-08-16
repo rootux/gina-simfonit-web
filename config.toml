@@ -14,7 +14,7 @@
 
 baseURL = "https://thesymphonicgarden.org/"
 defaultContentLanguage = "en"
-title = "The Simfonic Garden"
+title = "The Symphonic Garden"
 theme = "tranquilpeak"
 publishDir = "./docs"
 googleAnalytics = "G-0ZT9DJB4V6"
@@ -100,7 +100,7 @@ canonifyurls = false
   # If false it will flat categories.
   hierarchicalCategories = true
 
-  description = "The Simfonic Garden exprience"
+  description = "The Symphonic Garden exprience"
 
   # Customization
   # Define the behavior of the sidebar

@@ -13,11 +13,11 @@
 
 <meta property="og:description" content="The garden experience">
 <meta property="og:type" content="article">
-<meta property="og:title" content="The Simfonic Garden">
-<meta name="twitter:title" content="The Simfonic Garden">
+<meta property="og:title" content="The Symphonic Garden">
+<meta name="twitter:title" content="The Symphonic Garden">
 <meta property="og:url" content="https://thesymphonicgarden.org/garden/garden/">
 <meta property="twitter:url" content="https://thesymphonicgarden.org/garden/garden/">
-<meta property="og:site_name" content="The Simfonic Garden">
+<meta property="og:site_name" content="The Symphonic Garden">
 <meta property="og:description" content="The garden experience">
 <meta name="twitter:description" content="The garden experience">
 <meta property="og:locale" content="en">
@@ -45,7 +45,7 @@
   <meta property="twitter:image" content="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=640">
 
 
-    <title>The Simfonic Garden</title>
+    <title>The Symphonic Garden</title>
 
     <link rel="icon" href="/favicon.png">
     
@@ -83,84 +83,7 @@ if (!doNotTrack) {
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="4">
-  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-  <div class="header-title">
-    <a class="header-title-link" href="/">The Simfonic Garden</a>
-  </div>
-  
-    
-      <a class="header-right-picture "
-         href="/#about">
-    
-    
-    
       
-        <img class="header-picture" src="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=90" alt="" />
-      
-    
-    </a>
-  
-</header>
-
-      <nav id="sidebar" data-behavior="4">
-  <div class="sidebar-container">
-    
-      <div class="sidebar-profile">
-        <a href="/#about">
-          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=110" alt="" />
-        </a>
-        <h4 class="sidebar-profile-name">Symphonic Garden</h4>
-        
-      </div>
-    
-    <ul class="sidebar-buttons">
-      
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="/">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
-      
-      <span class="sidebar-button-desc">Home</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="/garden/garden">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-tree"></i>
-      
-      <span class="sidebar-button-desc">Garden</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="/#about">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
-      
-      <span class="sidebar-button-desc">About</span>
-    </a>
-  </li>
-
-
-    </ul>
-    <ul class="sidebar-buttons">
-      
-
-    </ul>
-    <ul class="sidebar-buttons">
-      
-
-    </ul>
-  </div>
-</nav>
-
-      
-
       <div id="main" data-behavior="4"
         class="
                hasCoverMetaIn
@@ -187,35 +110,50 @@ if (!doNotTrack) {
               <link rel="stylesheet" href="/css/slider.css">
 <link rel="stylesheet" href="/css/garden_player.css">
 <link rel="stylesheet" href="/css/garden_3dmodel.css">
-<div id="loader"></div>
-<div id="loadingSounds">Loading sounds...</div>
-<button id="start" class="player_btn">START</button>
-<br/>
+
+<div class="top-container">
+    <button id="start" class="player_btn">START</button>
+    <span id="sensors_data">Loading Sensors data...</span>
+    <span id="weather_data">Loading Weather data...</span>
+</div>
+
 <div class="button-container">
     <div class="button">
-        <afix-range-slider id="wind_slider" style="display:inline-block" value="0" min="0" max="50"></afix-range-slider>
-        <button id="wind" class="player_btn">WIND<span class ="button-img" id="wind-img" /></button>
+        <button id="wind" class="player_btn">
+            <span class="sensor_text">&nbsp;&nbsp;&nbsp;WIND&nbsp;&nbsp;&nbsp;</span>
+            <div class="break"></div>
+            <afix-range-slider id="wind_slider" value="0" min="0" max="50"></afix-range-slider>
+            <span class ="button-img" id="wind-img" /></button>
     </div>
     <div class="button">
-        <afix-range-slider id="dust_slider" style="display:inline-block" value="0" min="0" max="100"></afix-range-slider>
-        <button id="dust" class="player_btn">DUST<span class ="button-img" id="dust-img" /></button>
+        <button id="dust" class="player_btn"><span class="sensor_text">&nbsp;&nbsp;&nbsp;DUST&nbsp;&nbsp;&nbsp;</span>
+            <div class="break"></div>
+            <afix-range-slider id="dust_slider" value="0" min="0" max="100"></afix-range-slider>
+            <span class ="button-img" id="dust-img" /></button>
     </div>
     <div class="button">
-        <afix-range-slider id="radiation_slider" style="display:inline-block" value="0" min="0" max="1000"></afix-range-slider>
-        <button id="radiation" class="player_btn">RADIATION<span class ="button-img" id="radiation-img" /></button>
+        <button id="radiation" class="player_btn"><span class="sensor_text">RADIATION</span>
+            <div class="break"></div>
+            <afix-range-slider id="radiation_slider" value="0" min="0" max="1000"></afix-range-slider>
+            <span class ="button-img" id="radiation-img" /></button>
     </div>
     <div class="button">
-        <afix-range-slider id="humidity_slider" style="display:inline-block" value="0" min="0" max="100"></afix-range-slider>
-        <button id="humidity" class="player_btn">HUMIDITY<span class ="button-img" id="humidity-img" /></button>
+        <button id="humidity" class="player_btn"><span class="sensor_text">HUMIDITY</span>
+            <div class="break"></div>
+            <afix-range-slider id="humidity_slider" value="0" min="0" max="100"></afix-range-slider>
+            <span class ="button-img" id="humidity-img" /></button>
     </div>
     <div class="button">
-        <afix-range-slider id="temperature_slider" disabled=disabled style="display:inline-block" value="0" min="0" max="100"></afix-range-slider>
-        <button id="temperature" class="player_btn">TEMPERATURE<span class ="button-img" id="temperature-img" /></button>
+        <button id="temperature" class="player_btn"><span class="sensor_text">TEMPERATURE</span>
+            <div class="break"></div>
+            <afix-range-slider id="temperature_slider" disabled=disabled value="0" min="0" max="100"></afix-range-slider>
+            <span class ="button-img" id="temperature-img" /></button>
     </div>
 </div>
 <div class="centerme">
-    <button id="quiet" class="player_btn">QUIET</button>
-    <span><p id="sensors_data">Loading Sensors data...</p></span>
+    </br>
+    <div id="loader"></div>
+    <div id="loadingSounds">Loading sounds...</div>
 </div>
 
 <div id="garden_model"></div>

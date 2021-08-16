@@ -2,3 +2,19 @@ body {
     --afix-range-slider-track-background-color: #F8F4E3;
     --afix-range-slider-border: 1px solid rgba(0,0,0,0.8);
 }
+
+@media only screen and (max-width: 1024px)  {
+    body {
+        --afix-range-slider-width: 1.3em;
+        --afix-range-slider-height: 3.5em;
+    }
+}
+
+
+
+@media only screen and (max-width: 868px)  {
+    body {
+        --afix-range-slider-width: 1.5em;
+        --afix-range-slider-height: 3.5em;
+    }
+}
