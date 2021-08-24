@@ -24,12 +24,12 @@ and the development of nature through the beauty of the vegetation and the music
     
     <item>
       <title></title>
-      <link>https://thesymphonicgarden.org/he/garden/garden/</link>
+      <link>https://thesymphonicgarden.org/he/thegarden/garden/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://thesymphonicgarden.org/he/garden/garden/</guid>
-      <description> Loading sounds... התחל שקט WIND SPEED WIND DIRECTION EARTH RADIATION DUST TEMPERATURE HUMIDITY Loading Sensors data...
-           window.addEventListener(&#39;load&#39;, (event) = { console.log(&#39;Starting the experience...&#39;) window.player.init() }); </description>
+      <guid>https://thesymphonicgarden.org/he/thegarden/garden/</guid>
+      <description>Loading sounds...התחלשקטWIND SPEEDWIND DIRECTIONEARTHRADIATIONDUSTTEMPERATUREHUMIDITYLoading Sensors data...
+window.addEventListener(&#39;load&#39;, (event) = {console.log(&#39;Starting the experience...&#39;)window.player.init()});</description>
     </item>
     
   </channel>

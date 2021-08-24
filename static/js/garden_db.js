@@ -14,7 +14,7 @@
     const db = firebase.firestore();
     window.db = db;
 
-    const sensors = await db.collection('garden-mekudeshet').doc('sensors').get()
+    const sensors = await db.collection('thegarden-mekudeshet').doc('sensors').get()
     setSensorsData(sensors.data())
 
 })()

@@ -1,6 +1,7 @@
 body {
     --afix-range-slider-track-background-color: #F8F4E3;
     --afix-range-slider-border: 1px solid rgba(0,0,0,0.8);
+    --afix-range-slider-width: 1.3em;
 }
 
 @media only screen and (max-width: 1024px)  {

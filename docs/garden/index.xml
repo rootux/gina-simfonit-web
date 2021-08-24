@@ -11,7 +11,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://thesymphonicgarden.org/garden/garden/</guid>
-      <description>START Loading Sensors data... Loading Weather data...  &amp;nbsp;&amp;nbsp;&amp;nbsp;WIND&amp;nbsp;&amp;nbsp;&amp;nbsp;     &amp;nbsp;&amp;nbsp;&amp;nbsp;DUST&amp;nbsp;&amp;nbsp;&amp;nbsp;     RADIATION     HUMIDITY     TEMPERATURE        Loading sounds...            window.addEventListener(&#39;load&#39;, (event) = { console.log(&#39;Starting the experience...&#39;) window.player.init() }); </description>
+      <description>STARTLoading Sensors data...Loading Weather data...&amp;nbsp;&amp;nbsp;&amp;nbsp;WIND&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DUST&amp;nbsp;&amp;nbsp;&amp;nbsp;RADIATIONHUMIDITYTEMPERATURELoading sounds...window.addEventListener(&#39;load&#39;, (event) = {console.log(&#39;Starting the experience...&#39;)window.player.init()});</description>
     </item>
     
   </channel>

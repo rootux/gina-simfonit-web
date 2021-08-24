@@ -46,21 +46,21 @@
                 href="https://thesymphonicgarden.org/2021/07/the-symphonic-garden-project/"
                 />
   </url><url>
-    <loc>https://thesymphonicgarden.org/garden/garden/</loc>
+    <loc>https://thesymphonicgarden.org/thegarden/garden/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="he"
-                href="https://thesymphonicgarden.org/he/garden/garden/"
+                href="https://thesymphonicgarden.org/he/thegarden/garden/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ar"
-                href="https://thesymphonicgarden.org/ar/garden/garden/"
+                href="https://thesymphonicgarden.org/ar/thegarden/garden/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://thesymphonicgarden.org/garden/garden/"
+                href="https://thesymphonicgarden.org/thegarden/garden/"
                 />
   </url><url>
     <loc>https://thesymphonicgarden.org/archives/</loc>
@@ -97,23 +97,6 @@
                 href="https://thesymphonicgarden.org/categories/"
                 />
   </url><url>
-    <loc>https://thesymphonicgarden.org/garden/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="he"
-                href="https://thesymphonicgarden.org/he/garden/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ar"
-                href="https://thesymphonicgarden.org/ar/garden/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://thesymphonicgarden.org/garden/"
-                />
-  </url><url>
     <loc>https://thesymphonicgarden.org/tags/</loc>
     <xhtml:link
                 rel="alternate"
@@ -129,6 +112,23 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://thesymphonicgarden.org/tags/"
+                />
+  </url><url>
+    <loc>https://thesymphonicgarden.org/thegarden/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="he"
+                href="https://thesymphonicgarden.org/he/thegarden/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ar"
+                href="https://thesymphonicgarden.org/ar/thegarden/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://thesymphonicgarden.org/thegarden/"
                 />
   </url>
 </urlset>

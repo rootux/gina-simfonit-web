@@ -1,41 +1,28 @@
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.126.0/build/three.module.js'
 import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.126.0/examples/jsm/controls/OrbitControls.js'
-import rhino3dm from 'https://cdn.jsdelivr.net/npm/rhino3dm@0.15.0-beta/rhino3dm.module.js'
+import { Rhino3dmLoader } from 'https://cdn.jsdelivr.net/npm/three@0.126.0/examples/jsm/loaders/3DMLoader.js'
 
-const file = '/img/garden.3dm'
+let scene, camera, renderer;
+let modelObj;
+
+const file = '/img/garden.3dm';
 
 const RENDER_SIZE = 1
 
-// wait until the rhino3dm library is loaded, then load the 3dm file
-rhino3dm().then(async m => {
-    console.log('Loaded rhino3dm.')
-    let rhino = m
+const loader = new Rhino3dmLoader();
 
-    let res = await fetch(file)
-    let buffer = await res.arrayBuffer()
-    let arr = new Uint8Array(buffer)
-    let doc = rhino.File3dm.fromByteArray(arr)
+init();
 
-    init()
-
-    let material = new THREE.MeshNormalMaterial()
-
-    let objects = doc.objects()
-    for (let i = 0; i < objects.count; i++) {
-        let mesh = objects.get(i).geometry()
-        if(mesh instanceof rhino.Mesh) {
-            // convert all meshes in 3dm model into threejs objects
-            let threeMesh = meshToThreejs(mesh, material)
-            models.push(threeMesh);
-            scene.add(threeMesh)
-        }
-    }
-
-    document.getElementById('loader').style.display = 'none'
-})
-
-let models = [];
-let scene, camera, renderer;
+loader.setLibraryPath( 'https://cdn.jsdelivr.net/npm/rhino3dm@0.15.0-beta/' );
+loader.load( file, ( obj ) => {
+    document.getElementById('loader').style.display = 'none';
+    modelObj = obj;
+    scene.add(modelObj);
+        }, (xhr) => [
+    console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' )
+], (err) =>{
+    console.error(err);
+});
 
 function init() {
     let scale = 1;
@@ -53,12 +40,18 @@ function init() {
     // Offset the y
     camera.setViewOffset( window.innerWidth, window.innerHeight, 0, 100 * scale, window.innerWidth, window.innerHeight );
 
-    renderer = new THREE.WebGLRenderer({antialias: false}) //helps with performence
+    renderer = new THREE.WebGLRenderer({antialias: true}) //helps with performance
     renderer.setPixelRatio( window.devicePixelRatio )
     renderer.setSize( window.innerWidth * RENDER_SIZE, window.innerHeight  * RENDER_SIZE)
     const elem = document.getElementById('garden_model');
     elem.appendChild( renderer.domElement )
 
+    const light = new THREE.AmbientLight( 0x404040 ); // soft white light
+    scene.add( light );
+    const light2 = new THREE.HemisphereLight( 0xffffbb, 0x8ea7ff, 0.2 );
+    scene.add( light2 );
+    const directionalLight = new THREE.DirectionalLight( 0xffffff, 0.6);
+    scene.add( directionalLight );
     const controls = new OrbitControls( camera, renderer.domElement )
 
     window.addEventListener( 'resize', onWindowResize, false )
@@ -66,10 +59,8 @@ function init() {
 }
 
 function animate () {
-    if(models.length > 0) {
-        for (let model of models) {
-            model.rotation.z += 0.0005;
-        }
+    if(modelObj) {
+        modelObj.rotation.z += 0.0005;
     }
     requestAnimationFrame( animate )
     renderer.render( scene, camera )
@@ -88,17 +79,18 @@ function meshToThreejs(mesh, material) {
 }
 
 function getFormattedSensors(sensorsData) {
-    let water_status = ''
-    if(sensorsData.water_status == 1) {
-        water_status = 'Over wattered'
-    }else if(sensorsData.water_status == -1){
-        water_status = 'Under wattered'
-    }else {
-        water_status = 'Perfect'
-    }
-    const sensorsFormatted = `Wind: ${sensorsData.wind_speed}KM/s (${sensorsData.wind_direction})
-    Water status: ${water_status}`
-    return sensorsFormatted;
+    // let water_status = ''
+    // if(sensorsData.water_status == 1) {
+    //     water_status = 'Over wattered'
+    // }else if(sensorsData.water_status == -1){
+    //     water_status = 'Under wattered'
+    // }else {
+    //     water_status = 'Perfect'
+    // }
+    // const sensorsFormatted = `Wind: ${sensorsData.wind_speed}KM/s (${sensorsData.wind_direction})
+    // Water status: ${water_status}`
+    //return sensorsFormatted;
+    return 'TBD'
 }
 
 function setSensorsData(sensorsData) {
