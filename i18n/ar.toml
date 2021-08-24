@@ -7,8 +7,11 @@ other = "الحديقة"
 [About]
 other = "حول"
 
-[Bio]
+[Author.Bio]
 other = "Where music meets nature!"
+
+[Author.Job]
+other = "Jerusalem"
 
 [Creators]
 other = "Creators"

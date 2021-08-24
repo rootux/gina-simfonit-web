@@ -7,8 +7,11 @@ other = "Garden"
 [About]
 other = "About"
 
-[Bio]
-other = "Where music meets nature!"
+[Author.Bio]
+other = "listen to the garden sing"
+
+[Author.Job]
+other = "Jerusalem"
 
 [Creators]
 other = "Creators"

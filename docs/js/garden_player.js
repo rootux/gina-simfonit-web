@@ -36,12 +36,12 @@ function setSliders(weather) {
 
 async function getWeatherAsEffects(weather) {
     return {
-        solarRadiation: mapRange(weather.solarRadiation, 0, 1000, 0, 4), // 0 is night time. autofilter
+        solarRadiation: mapRange(weather.solarRadiation, 0, 1000, 750, 220), // 0 is night time. autofilter
         //windDirection: mapWindDir(weather.windDir); //0 - 50. Panning
         windSpeed: mapRange(weather.windSpeed, 0, 50, 0, 1),
-        bigDust: mapRange(weather.bigDust, 0, 300, 0, 1), //Tremolo - TODO there is also frequency + depth of termolo
+        bigDust: mapRange(weather.bigDust, 0, 300, 0, 1), //Distortion
         humidity: mapRange(weather.humidity, 0, 100, 0, 1), // 100 cause it's Percentage
-        temperature: mapRange(weather.temperature, -20, 50, 0, 10), // -20 to 50 degrees //TODO: -20 might not be a good no reverb time - perhaps a different mapping is needed where 25 degrees is normal
+        temperature: mapRange(weather.temperature, -20, 50, 0, 30), // -20 to 50 degrees //TODO: -20 might not be a good no reverb time - perhaps a different mapping is needed where 25 degrees is normal
     }
 }
 
@@ -71,7 +71,10 @@ async function init() {
 }
 
 function setWeatherText(weather) {
-    document.getElementById('weather_data').innerText = "Wind direction: " + weather.windDir;
+    document.getElementById('weather_data').innerText = `Wind direction: " + ${weather.windDir}
+    Speed: ${weather.windSpeed}
+    Dust: ${weather.bigDust}
+    `
 }
 
 function setAllButtonsToActive(){
@@ -92,20 +95,34 @@ function setAllButtonsToInactiveBut(btnToKeepActive) {
 
 function initIntroEffects(weatherAsEffects) {
     introEffects = new Array(5).fill(0).map(() => ({}));
-    const autoFilter = new Tone.AutoFilter(weatherAsEffects.solarRadiation + "n").toDestination();
+    const autoFilter = new Tone.AutoFilter("20n");//weatherAsEffects.solarRadiation);
+    autoFilter.wet = 0;
+    autoFilter.toDestination();
+    //new Tone.Source().chain(autoFilter, Tone.Master);
     introEffects[0] = {effect: autoFilter, status: false};
-    const distortion = new Tone.Distortion(weatherAsEffects.bigDust).toDestination();
+    const distortion = new Tone.Distortion(weatherAsEffects.bigDust)//.toDestination();
+    distortion.wet = 0;
+    distortion.toDestination();
     introEffects[1] = {effect: distortion, status: false};
-    const reverb = new Tone.Reverb(weatherAsEffects.temperature).toDestination();
-    introEffects[2] = {effect: distortion, status: false};
+    //const reverb = new Tone.Reverb({preDelay: 10, decay: 30});
+    const reverb = new Tone.JCReverb(0.2);
+    reverb.wet = 1;
+    reverb.toDestination();
+    introEffects[2] = {effect: reverb, status: false};
 }
 
 function startIntroEffect(channelIndex) {
     let introChannel = introEffects[channelIndex];
     if(!introChannel.status) {
+        //introChannel.effect.wet.rampTo(1, 3); // 1 second
         introPlayer.connect(introChannel.effect);
+        introChannel.effect.wet = 1;
+        //const oscillator = new Tone.Oscillator().connect(introChannel.effect).start();
+
         //introChannel.effect.start();
     }else {
+        introChannel.effect.wet = 0;
+        //introChannel.effect.wet.rampTo(0, 3); // 1 second
         introPlayer.disconnect(introChannel.effect);
         //introChannel.effect.stop();
     }
@@ -166,11 +183,12 @@ window.player.init = function() {
     //     }
     // });
 
-    setClickHandler(buttons.wind, 0);
+    setClickHandler(buttons.radiation, 0);
     setClickHandler(buttons.dust, 1);
-    setClickHandler(buttons.humidity, 2);
-    setClickHandler(buttons.radiation, 3);
-    setClickHandler(buttons.temperature, 4);
+    setClickHandler(buttons.temperature, 2);
+
+    setClickHandler(buttons.wind, 3);
+    setClickHandler(buttons.humidity, 4);
 
 }
 

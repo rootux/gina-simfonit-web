@@ -8,7 +8,10 @@ other = "הגינה"
 other = "אודות"
 
 [Author.Bio]
-other = "הקשב לרחשי הגינה"
+other = "הקשב לשיר הגינה"
+
+[Author.Job]
+other = "ירושלים"
 
 [Creators]
 other = "יוצרים"
